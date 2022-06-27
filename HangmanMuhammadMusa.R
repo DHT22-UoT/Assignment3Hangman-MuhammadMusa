@@ -4,6 +4,10 @@
 # Create a dictionary of names.
 names <- c("toronto", "raptors", "watermelon", "biotechnology", "lebron")
 
+# COMMENT: I think we were supposed to "read"/import an external txt file with names listed in one coloumn.
+
+
+
 # Sample one word at random and store it as namedrawn.
 namedrawn <- sample(names, 1)
 
@@ -22,9 +26,12 @@ print(paste("In order to win, you must guess the unknown word within", attempts,
 unknownletters <- strsplit(as.character(namedrawn), split = "")[[1]]
 
 # while loop that would make the game going until the set number of incorrect tries have been reached.
+# COMMENT: I think its a smart  rule, to have a set of incorrect answers allowed (I think this is more elegant)
+# I had the default tries as "1 + the number of letters of the word" 
 while (attempts > 0) {
   
   # Asking user to guess a letter.
+  #COMMENT: tolower is a very good way to make sure the input is not subject to case-sensitivity!
   userinput <- tolower(readline(prompt = "Please Input a single letter: "))
   
   # Checking to ensure user enters one letter only. If the entry is incorrect, displaying the appropriate message.
@@ -61,6 +68,8 @@ while (attempts > 0) {
 
 
 # When all incorrect tries have been reached, asking the user to input there final guess.
+# COMMENT:: For the user to really understand you are asking for the full word guess, you can word this 
+# more explicitly.
 userguess <- readline(prompt = "You are out of tries. Please enter your guess: ")
 
 # Informing the user if their guess was correct or incorrect.
@@ -71,3 +80,7 @@ if (userguess == namedrawn) {
   print(paste("YOU LOSE. The known word was:", namedrawn))
 }
 
+#COMMENT:
+# I tried to end my HANGMAN the same way as yours, but I didnt do an else statement.
+# I think thats why mine didnt work - Your code runs very well! - thanks for giving me an 
+# idea of why my code didnt end properly!
